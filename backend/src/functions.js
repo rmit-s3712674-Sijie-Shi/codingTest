@@ -28,7 +28,7 @@ export const UpdateIssue = (req, res) => {
     issue ? res.status(200).json(issue) : res.status(404).send('Issue not found');
 }
 
-export const IssueDelete = (req, res) => {
+export const DeleteIssue = (req, res) => {
     const { id } = req.params;
     data.delete(id);
     res.status(204).send();
