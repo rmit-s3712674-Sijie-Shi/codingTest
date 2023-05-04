@@ -1,5 +1,5 @@
-import { LocalData } from "./datastore/localData";
-import uuid from "uuid";
+import { LocalData } from "./datastore/localData.js";
+import uniqid from 'uniqid';
 
 const data = new LocalData()
 
@@ -7,7 +7,7 @@ export const CreateIssue = (req, res) => {
     console.log(req);
     const { title, description } = req.body || {};
     const issue = {
-        id: uuid(),
+        id: uniqid(),
         title,
         description
     };
