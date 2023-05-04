@@ -24,12 +24,27 @@ function App() {
     })
   },[])
 
+  let read = useCallback(() => {
+    
+    axios.get(baseUrl + `/${id}`, { headers: { "Content-Type": "application/json" } })
+    .then(res => {
+      console.log(res.data)
+    })
+    .catch(err => {
+      console.error(err)
+    })
+  },[])
+
   const changeTitle = (value) => {
     console.log(value.target.value)
     setTitle(value.target.value)
   }
   const changeDes = (value) => {
     setDes(value.target.value)
+  }
+  const changeId = (value) => {
+    console.log(value.target.value)
+    setId(value.target.value)
   }
 
   return (
@@ -40,7 +55,11 @@ function App() {
       <div>
         <input onChange={changeDes}></input>
       </div>
+      <div>
+        <input onChange={changeId}></input>
+      </div>
       <button onClick={createIssue}>create</button>
+      <button onClick={read}>read</button>
       <div>
 
       </div>

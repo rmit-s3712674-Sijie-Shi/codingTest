@@ -16,6 +16,7 @@ export const CreateIssue = (req, res) => {
 }
 
 export const GetIssue = (req, res) => {
+    console.log( req.params);
     const { id } = req.params;
     const issue = data.read(id);
     issue ? res.status(200).json(issue) : res.status(404).send('Issue not found');
